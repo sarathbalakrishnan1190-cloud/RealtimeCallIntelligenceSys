@@ -1,0 +1,7 @@
+openai>=1.0.0
+python-dotenv
+# Week 2-4 dependencies to be added later:
+# pyannote.audio
+# spacy
+# presidio-analyzer
+# presidio-anonymizer
