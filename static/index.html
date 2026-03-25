@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceOps Sentinel | AI Call Intel</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="glass-container">
+        <header>
+            <div class="logo">🛡️ VoiceOps <span>Sentinel</span></div>
+            <p>Intelligence & Privacy Analytics</p>
+        </header>
+
+        <main>
+            <section class="upload-section card">
+                <h3>Upload Recording</h3>
+                <!-- Hidden actual file input -->
+                <input type="file" id="audioUpload" accept=".mp3,.wav" hidden>
+                
+                <!-- Large, styled drop-zone label -->
+                <label for="audioUpload" class="drop-zone">
+                    <div class="upload-icon">📁</div>
+                    <p><strong>Click to Choose Audio</strong> or drag and drop</p>
+                    <span id="fileNameDisplay">No file selected</span>
+                </label>
+
+                <button id="processBtn">🚀 Start Intelligence Pipeline</button>
+                <div id="loader" class="hidden">
+                    <div class="spinner"></div>
+                    <p id="statusTxt">Analyzing Audio...</p>
+                </div>
+            </section>
+
+            <section id="results" class="hidden">
+                <div class="grid">
+                    <div class="card">
+                        <h4>📝 Diarization</h4>
+                        <pre id="diarizedView"></pre>
+                    </div>
+                    <div class="card">
+                        <h4>🕵️ Redacted Transcript</h4>
+                        <pre id="redactedView"></pre>
+                    </div>
+                </div>
+                <div class="card intel-card">
+                    <h4>💡 AI Intelligence Result</h4>
+                    <div id="intelView"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

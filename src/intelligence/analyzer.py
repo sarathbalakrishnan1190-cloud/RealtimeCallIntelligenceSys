@@ -10,7 +10,8 @@ class LLMAnalyzer:
         Your response MUST be exclusively valid JSON with these exact keys:
         1. "Summary": A 1-2 sentence summary of the call.
         2. "Sentiment": One word describing the customer's sentiment (e.g., Angry, Happy, Neutral, Confused).
-        3. "ActionItems": A list of bullet points of next steps discussed in the call.
+        3. "AgentActions": A list of specific actions the agent took during this call.
+        4. "ActionItems": A list of bullet points of next steps or follow-ups.
         Do NOT wrap the JSON in markdown code blocks. Output pure JSON.
         """
 
