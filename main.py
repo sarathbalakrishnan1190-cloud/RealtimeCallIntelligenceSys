@@ -21,18 +21,27 @@ def main():
     # Step 1: Initialize Transcriber (No API key needed!)
     transcriber = AudioTranscriber()
     
-    # Step 2: Transcription
-    transcript = transcriber.transcribe(audio_path)
+    # Step 2: Transcription (includes Diarization from yesterday!)
+    diarized_text = transcriber.transcribe(audio_path)
     
-    if transcript:
-        print("\n--- Transcription Result ---")
-        print(transcript)
+    if diarized_text:
+        print("\n--- Diarization Result ---")
+        print(diarized_text)
+        print("----------------------------\n")
+
+        # Step 3: PII Redaction (Privacy Component)
+        from src.privacy.redactor import PIIRedactor
+        redactor = PIIRedactor()
+        redacted_transcript = redactor.redact(diarized_text)
+        
+        print("\n--- Redacted Transcript ---")
+        print(redacted_transcript)
         print("----------------------------\n")
         
-        # Step 3: Intelligence Layer
+        # Step 4: Intelligence Layer
         print("Initializing Intelligence Layer...")
         analyzer = LLMAnalyzer()
-        analysis_result = analyzer.analyze(transcript)
+        analysis_result = analyzer.analyze(redacted_transcript)
         
         print("\n--- Intelligence Result ---")
         print(analysis_result)
